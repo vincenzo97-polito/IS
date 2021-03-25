@@ -1,6 +1,6 @@
 body {
-  background: #fafafa;
-  color: #333333;
+  background: url("sfondo.jpg") no-repeat;
+  background-size: cover;
   margin-top: 5rem;
 }
 
