@@ -79,8 +79,8 @@ def logout():
 
 def save_picture(form_picture):
     #random_hex = secrets.token_hex(8)
-    _, f_ext = os.path.splitext(form_picture.filename)
-    picture_fn = f_ext #+random_hex
+    f_name, f_ext = os.path.splitext(form_picture.filename)
+    picture_fn = f_name + f_ext
     # to save the image into profile_pics folder within the static folder:
     picture_path = os.path.join(app.root_path, 'static/profile_pics', picture_fn)
     #to resize the saved image:
@@ -173,3 +173,4 @@ def user_posts(username):
     user = User.query.filter_by(username=username).first_or_404()
     posts = Post.query.filter_by(author=user).order_by(Post.date_posted.desc()).paginate(page=page, per_page=5)
     return render_template('user_posts.html', posts=posts, user=user)
+
